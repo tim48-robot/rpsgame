@@ -1,26 +1,25 @@
 function getRandomChoice(){
-    let choiceslength = ["rock", "paper", "scissors"]
-    choiceindex = Math.floor(Math.random()*choiceslength.length())
-    computerchoice = choiceslength[choiceindex]
+    let choiceslength = ["gunting", "kertas", "batu"]
+    let choiceindex = Math.floor(Math.random()*choiceslength.length)
+    let computerchoice = choiceslength[choiceindex]
     return computerchoice
 }
 
 const tabelKemenangan = {
-    2:"gunting",
-    1:"kertas",
-    3:"batu"
+    batu:"gunting",
+    gunting:"kertas",
+    kertas:"batu"
 }
 
-while (true) {
-let userinput = prompt("Silahkan pilih antara gunting batu dan kertas: ")
-console.log("1. Gunting")
-console.log("2. Batu")
-console.log("3. Kertas")
-
-getRandomChoice();
+let looping = true;
+while (looping) {
+let userinput = prompt("Silahkan pilih antara gunting batu dan kertas: ").toLowerCase()
+let computerchoice = getRandomChoice();
 if (tabelKemenangan[userinput]==computerchoice){
     let input2 = prompt("Kamu menang! Apakah kamu ingin bermain lagi? [Y/N]")
-    if (input2 = 'N'){
+    if (input2 == 'N'){
+        break;
+    } if (input2 == null) {
         break;
     }
     else{
@@ -28,23 +27,29 @@ if (tabelKemenangan[userinput]==computerchoice){
     }
 }
 if (tabelKemenangan[userinput]!=computerchoice){
-    let input2 = prompt("Kamu kalah! Apakah kamu ingin bermain lagi? [Y/N]")
-    if (input2 = 'N'){
+    let input2 = prompt("Kamu kalah! Apakah kamu ingin bermain lagi? [Y/N]").toUpperCase();
+    if (input2 == 'N'){
+        break;
+    } if (input2 == null) {
         break;
     }
     else{
-        continue;
     }
 }
 
 if(userinput == computerchoice){
-    let input2 = prompt("Seri! Apakah kamu ingin bermain lagi? [Y/N]")
-    if (input2 = 'N'){
+    let input2 = prompt("Seri! Apakah kamu ingin bermain lagi? [Y/N]").toUpperCase();
+    if (input2 == 'N'){
+        break;
+    }if (input2 == null) {
         break;
     }
     else{
-        continue;
     }
+}
+
+else {
+    console.log("LANJUT")
 }
 
 }
